@@ -12,23 +12,17 @@
         <th>ID</th>
         <th>タイトル</th>
         <th>著者</th>
+        <th>値段</th>
         <th>在庫</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="book : ${bookList}">
-        <th th:text="${book.id}">(id)</th>
-        <td>
-            <a href="#" th:href="@{book/{bookId}(bookId=${book.id})}" th:text="${book.title}">
-                (title)
-            </a>
-        </td>
-        <td>
-            <a href="#" th:href="@{book/{bookId}(bookId=${book.id})}" th:text="${book.author}">
-                (author)
-            </a>
-        </td>
-        <td th:text="${book.stock}">(stock)</td>
+        <td th:text="${book.id}">(id)</td>
+        <td><a href="#" th:href="@{book/{bookId}(bookId=${book.id})}" th:text="${book.title}">(title)</a></td>
+        <td th:text="${book.author}">(author)</a></td>   <!-- TODO 作者ページへのリンク -->
+        <td th:text="${book.price} + '円'">(price)</td>
+        <td th:text="'残り' + ${book.stock} + '冊'">(stock)</td>
     </tr>
     </tbody>
 </table>
