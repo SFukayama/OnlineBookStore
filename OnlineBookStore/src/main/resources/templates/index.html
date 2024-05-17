@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>書籍一覧</title>
+</head>
+<body>
+<h1>書籍一覧</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>タイトル</th>
+        <th>著者</th>
+        <th>在庫</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${bookList}">
+        <th th:text="${book.id}">(id)</th>
+        <td>
+            <a href="#" th:href="@{book/{bookId}(bookId=${book.id})}" th:text="${book.title}">
+                (title)
+            </a>
+        </td>
+        <td>
+            <a href="#" th:href="@{book/{bookId}(bookId=${book.id})}" th:text="${book.author}">
+                (author)
+            </a>
+        </td>
+        <td th:text="${book.stock}">(stock)</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
