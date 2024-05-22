@@ -17,5 +17,6 @@ public class BookDTO {
         this.title = book.getTitle();
         this.author = book.getAuthor();
         this.price = book.getPrice();
+        this.stock = book.getStock();
     }
 }

@@ -1,5 +1,6 @@
 package com.example.OnlineBookStore.domain.service;
 
+import com.example.OnlineBookStore.application.dto.BookDTO;
 import com.example.OnlineBookStore.domain.model.Book;
 import com.example.OnlineBookStore.domain.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,5 +16,9 @@ public class BookService {
 
     public List<Book> findAll() {
         return bookRepository.findAll();
+    }
+
+    public Book findBookDetailById(Integer bookId) {
+        return bookRepository.findBookDetailById(bookId);
     }
 }

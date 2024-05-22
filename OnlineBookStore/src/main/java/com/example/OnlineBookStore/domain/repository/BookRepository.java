@@ -10,4 +10,7 @@ import java.util.List;
 public interface BookRepository {
     @Select("select * from books")
     List<Book> findAll();
+
+    @Select("select * from books where id = #{bookId}")
+    Book findBookDetailById(Integer bookId);
 }

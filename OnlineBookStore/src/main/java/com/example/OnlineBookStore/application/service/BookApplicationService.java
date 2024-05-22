@@ -19,4 +19,8 @@ public class BookApplicationService {
                 .map(BookDTO::new)
                 .collect(Collectors.toList());
     }
+
+    public BookDTO findBookDetailById(Integer bookId) {
+        return new BookDTO(bookService.findBookDetailById(bookId));
+    }
 }
