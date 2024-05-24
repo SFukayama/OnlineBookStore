@@ -1,4 +1,4 @@
-package com.example.OnlineBookStore.presentation.controller;
+package com.example.OnlineBookStore.controller.book;
 
 import com.example.OnlineBookStore.application.service.BookApplicationService;
 import lombok.RequiredArgsConstructor;
@@ -11,20 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("book")
 @RequiredArgsConstructor
-public class IndexController {
+public class DetailController {
 
     private final BookApplicationService bookApplicationService;
-
-    @GetMapping("/index")
-    public String bookList(Model model) {
-        model.addAttribute("bookList", bookApplicationService.findAll());
-        return "index";
-    }
 
     @GetMapping("/{bookId}")
     public String bookDetail(@PathVariable Integer bookId, Model model) {
         model.addAttribute("bookDetail", bookApplicationService.findBookDetailById(bookId));
         return "detail";
     }
-
 }

@@ -1,4 +1,4 @@
-package com.example.OnlineBookStore.presentation.controller;
+package com.example.OnlineBookStore.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,5 +9,4 @@ public class TopController {
     public String top() {
         return "top";
     }
-
 }
