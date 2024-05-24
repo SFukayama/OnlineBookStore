@@ -18,6 +18,6 @@ public class DetailController {
     @GetMapping("/{bookId}")
     public String bookDetail(@PathVariable Integer bookId, Model model) {
         model.addAttribute("bookDetail", bookApplicationService.findBookDetailById(bookId));
-        return "detail";
+        return "book/detail";
     }
 }

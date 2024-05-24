@@ -1,8 +1,11 @@
 package com.example.OnlineBookStore.application.service;
 
 import com.example.OnlineBookStore.application.dto.BookDTO;
+import com.example.OnlineBookStore.controller.book.RegistrationForm;
+import com.example.OnlineBookStore.domain.model.Book;
 import com.example.OnlineBookStore.domain.service.BookService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +16,7 @@ import java.util.stream.Collectors;
 public class BookApplicationService {
 
     private final BookService bookService;
+    private final ModelMapper modelMapper;
 
     public List<BookDTO> findAll() {
         return bookService.findAll().stream()
@@ -22,5 +26,10 @@ public class BookApplicationService {
 
     public BookDTO findBookDetailById(Integer bookId) {
         return new BookDTO(bookService.findBookDetailById(bookId));
+    }
+
+    public void registerBook(RegistrationForm registrationForm) {
+        Book book = modelMapper.map(registrationForm, Book.class);
+        bookService.registerBook(book);
     }
 }
