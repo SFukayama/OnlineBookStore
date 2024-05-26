@@ -24,4 +24,8 @@ public class BookService {
     public void registerBook(Book book) {
         bookRepository.registerBook(book);
     }
+
+    public void updateBook(Book book) {
+        bookRepository.updateBook(book);
+    }
 }

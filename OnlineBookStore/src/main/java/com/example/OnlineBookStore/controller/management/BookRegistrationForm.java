@@ -8,6 +8,8 @@ import lombok.Data;
 @Data
 public class BookRegistrationForm {
 
+    private int id;
+
     @NotBlank
     @Size(max = 256)
     private String title;

@@ -32,4 +32,9 @@ public class BookApplicationService {
         Book book = modelMapper.map(bookRegistrationForm, Book.class);
         bookService.registerBook(book);
     }
+
+    public void updateBookById(BookRegistrationForm bookRegistrationForm) {
+        Book book = modelMapper.map(bookRegistrationForm, Book.class);
+        bookService.updateBook(book);
+    }
 }
