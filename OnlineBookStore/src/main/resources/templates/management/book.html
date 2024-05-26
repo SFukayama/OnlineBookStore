@@ -2,12 +2,10 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>管理画面</title>
+    <title>書籍詳細</title>
 </head>
 <body>
-<h1>管理画面</h1>
-<a href="#" th:href="@{bookRegistrationForm}">書籍登録画面へ</a>
-<h1>書籍一覧</h1>
+<h1>書籍詳細</h1>
 <table>
     <thead>
     <tr>
@@ -16,19 +14,18 @@
         <th>著者</th>
         <th>値段</th>
         <th>在庫</th>
-        <th>管理</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="book : ${bookList}">
+    <tr th:each="book : ${bookDetail}">
         <td th:text="${book.id}">(id)</td>
-        <td><a href="#" th:href="@{{bookId}(bookId=${book.id})}" th:text="${book.title}">(title)</a></td>
+        <td th:text="${book.title}">(title)</td>
         <td th:text="${book.author}">(author)</td>   <!-- TODO 作者ページへのリンク -->
         <td th:text="${book.price} + '円'">(price)</td>
         <td th:text="'残り' + ${book.stock} + '冊'">(stock)</td>
-        <td><a href="#" th:href="@{{bookId}(bookId=${book.id})}" th:text="この書籍の管理画面へ">(management)</a></td>
     </tr>
     </tbody>
 </table>
+<a href="#" th:href="@{top}">書籍一覧に戻る</a>
 </body>
 </html>
