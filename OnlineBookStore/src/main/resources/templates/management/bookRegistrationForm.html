@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>書籍登録</h1>
-<form action="#" th:action="@{/book/registrationForm}" th:method="post" th:object="${registrationForm}">
+<form action="#" th:action="@{/management/bookRegistrationForm}" th:method="post" th:object="${bookRegistrationForm}">
     <div>
         <label for="titleInput">タイトル</label>
         <input type="text" id="titleInput" th:field="*{title}">

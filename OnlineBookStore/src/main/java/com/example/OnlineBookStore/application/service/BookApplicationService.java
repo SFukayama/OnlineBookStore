@@ -1,7 +1,7 @@
 package com.example.OnlineBookStore.application.service;
 
 import com.example.OnlineBookStore.application.dto.BookDTO;
-import com.example.OnlineBookStore.controller.book.RegistrationForm;
+import com.example.OnlineBookStore.controller.management.BookRegistrationForm;
 import com.example.OnlineBookStore.domain.model.Book;
 import com.example.OnlineBookStore.domain.service.BookService;
 import lombok.RequiredArgsConstructor;
@@ -28,8 +28,8 @@ public class BookApplicationService {
         return new BookDTO(bookService.findBookDetailById(bookId));
     }
 
-    public void registerBook(RegistrationForm registrationForm) {
-        Book book = modelMapper.map(registrationForm, Book.class);
+    public void registerBook(BookRegistrationForm bookRegistrationForm) {
+        Book book = modelMapper.map(bookRegistrationForm, Book.class);
         bookService.registerBook(book);
     }
 }

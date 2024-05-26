@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("management")
-public class ManagementController {
+public class ManagementTopController {
     @GetMapping("/top")
-    public String management(){
+    public String managementTop(){
         return "management/top";
     }
 }

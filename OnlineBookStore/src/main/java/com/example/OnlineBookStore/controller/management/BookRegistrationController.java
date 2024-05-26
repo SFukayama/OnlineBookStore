@@ -1,4 +1,4 @@
-package com.example.OnlineBookStore.controller.book;
+package com.example.OnlineBookStore.controller.management;
 
 import com.example.OnlineBookStore.application.service.BookApplicationService;
 import lombok.RequiredArgsConstructor;
@@ -11,23 +11,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("book/registrationForm")
+@RequestMapping("management/bookRegistrationForm")
 @RequiredArgsConstructor
-public class RegistrationController {
+public class BookRegistrationController {
 
     private final BookApplicationService bookApplicationService;
 
     @GetMapping
-    public String bookRegistration(@ModelAttribute RegistrationForm registrationForm) {
-        return "book/registrationForm";
+    public String bookRegistrationForm(@ModelAttribute BookRegistrationForm bookRegistrationForm) {
+        return "management/bookRegistrationForm";
     }
 
     @PostMapping
-    public String registerBook(@Validated RegistrationForm registrationForm, BindingResult bindingResult) {
+    public String registerBook(@Validated BookRegistrationForm bookRegistrationForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return bookRegistration(registrationForm);
+            return bookRegistrationForm(bookRegistrationForm);
         }
-        bookApplicationService.registerBook(registrationForm);
-        return "redirect:/book/registrationForm";
+        bookApplicationService.registerBook(bookRegistrationForm);
+        return "redirect:/management/bookRegistrationForm";
     }
 }

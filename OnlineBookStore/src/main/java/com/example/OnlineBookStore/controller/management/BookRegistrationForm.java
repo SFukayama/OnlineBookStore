@@ -1,4 +1,4 @@
-package com.example.OnlineBookStore.controller.book;
+package com.example.OnlineBookStore.controller.management;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
-public class RegistrationForm {
+public class BookRegistrationForm {
 
     @NotBlank
     @Size(max = 256)
