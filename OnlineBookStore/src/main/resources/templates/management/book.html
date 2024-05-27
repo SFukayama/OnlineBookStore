@@ -29,7 +29,7 @@
     </table>
 </div>
 <div>
-    <h1>変更後の書籍情報</h1>
+    <h1>書籍情報の変更</h1>
     <form action="#" th:action="@{/management/{bookId}}" th:method="post"
           th:object="${bookRegistrationForm}" th:each="book : ${bookDetail}">
         <div>
@@ -60,6 +60,12 @@
         <div>
             <button type="submit">変更</button>
         </div>
+    </form>
+</div>
+<div>
+    <h1>書籍の削除</h1>
+    <form th:action="@{/management/{id}/delete(id=${book.id})}" method="post" th:each="book : ${bookDetail}">
+        <button type="submit">削除</button>
     </form>
 </div>
 <a href="#" th:href="@{top}">書籍一覧に戻る</a>

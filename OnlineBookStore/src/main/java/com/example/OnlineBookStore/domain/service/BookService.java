@@ -28,4 +28,8 @@ public class BookService {
     public void updateBook(Book book) {
         bookRepository.updateBook(book);
     }
+
+    public void deleteBook(Integer bookId) {
+        bookRepository.deleteBook(bookId);
+    }
 }

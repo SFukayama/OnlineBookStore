@@ -27,4 +27,10 @@ public class BookManagementController {
         return "redirect:/management/top";
     }
 
+    @PostMapping("delete")
+    public String deleteBook(@PathVariable Integer bookId) {
+        bookApplicationService.deleteBookById(bookId);
+        return "redirect:/management/top";
+    }
+
 }

@@ -37,4 +37,8 @@ public class BookApplicationService {
         Book book = modelMapper.map(bookRegistrationForm, Book.class);
         bookService.updateBook(book);
     }
+
+    public void deleteBookById(Integer bookId) {
+        bookService.deleteBook(bookId);
+    }
 }

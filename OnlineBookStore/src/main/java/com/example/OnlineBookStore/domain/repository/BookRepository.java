@@ -1,10 +1,7 @@
 package com.example.OnlineBookStore.domain.repository;
 
 import com.example.OnlineBookStore.domain.model.Book;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -19,6 +16,9 @@ public interface BookRepository {
     @Insert("insert into books (title, author, price, stock) values (#{title}, #{author}, #{price}, #{stock})")
     void registerBook(Book book);
 
-    @Update("update books set id = #{id}, title = #{title}, author = #{author}, price = #{price}, stock = #{stock} where id = #{id};")
+    @Update("update books set id = #{id}, title = #{title}, author = #{author}, price = #{price}, stock = #{stock} where id = #{id}")
     void updateBook(Book book);
+
+    @Delete("delete from books where id = #{bookId}")
+    void deleteBook(Integer bookId);
 }
