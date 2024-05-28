@@ -6,17 +6,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("book")
+@RequestMapping("book/index")
 @RequiredArgsConstructor
 public class IndexController {
 
     private final BookApplicationService bookApplicationService;
 
-    @GetMapping("/index")
+    @GetMapping
     public String bookList(Model model) {
         model.addAttribute("bookList", bookApplicationService.findAll());
         return "book/index";
+    }
+
+    @GetMapping("/search")
+    public String searchBookListByTitle(@RequestParam("title") String title, Model model){
+        model.addAttribute("bookListByTitle", bookApplicationService.findBooksByTitle(title));
+        return "book/search";
     }
 }

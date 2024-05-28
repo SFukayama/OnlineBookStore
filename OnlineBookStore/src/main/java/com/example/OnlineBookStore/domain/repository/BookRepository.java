@@ -24,4 +24,7 @@ public interface BookRepository {
 
     @Select("select * from books where author = #{author}")
     List<Book> findBooksByAuthor(String author);
+
+    @Select("select * from books where title like CONCAT('%', #{title}, '%')")
+    List<Book> findBooksByTitle(String title);
 }

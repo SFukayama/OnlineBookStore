@@ -5,6 +5,7 @@ import com.example.OnlineBookStore.domain.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -35,5 +36,9 @@ public class BookService {
 
     public List<Book> findBooksByAuthor(String author) {
         return bookRepository.findBooksByAuthor(author);
+    }
+
+    public List<Book> findBooksByTitle(String title) {
+        return bookRepository.findBooksByTitle(title);
     }
 }

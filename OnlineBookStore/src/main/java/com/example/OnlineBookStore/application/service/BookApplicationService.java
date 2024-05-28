@@ -47,4 +47,10 @@ public class BookApplicationService {
                 .map(BookDTO::new)
                 .collect(Collectors.toList());
     }
+
+    public List<BookDTO> findBooksByTitle(String title) {
+        return bookService.findBooksByTitle(title).stream()
+                .map(BookDTO::new)
+                .collect(Collectors.toList());
+    }
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>書籍一覧</title>
+</head>
+<body>
+<h1>書籍一覧</h1>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>タイトル</th>
+    <th>著者</th>
+    <th>値段</th>
+    <th>在庫</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="book : ${bookListByTitle}">
+    <td th:text="${book.id}">(id)</td>
+    <td><a href="#" th:href="@{{bookId}(bookId=${book.id})}" th:text="${book.title}">(title)</a></td>
+    <td><a href="#" th:href="@{author/{author}(author=${book.author})}" th:text="${book.author}">(author)</a></td>
+    <td th:text="${book.price} + '円'">(price)</td>
+    <td th:text="'残り' + ${book.stock} + '冊'">(stock)</td>
+  </tr>
+  </tbody>
+</table>
+<h1>タイトル検索</h1>
+<form action="#" th:action="@{/book/index/search}" th:method="get">
+  <input type="text" name="title"/>
+  <div>
+    <button type="submit">検索</button>
+  </div>
+</form>
+
+</form>
+</body>
+</html>
