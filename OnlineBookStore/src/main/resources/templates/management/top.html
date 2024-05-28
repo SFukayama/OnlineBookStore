@@ -23,7 +23,7 @@
     <tr th:each="book : ${bookList}">
         <td th:text="${book.id}">(id)</td>
         <td><a href="#" th:href="@{{bookId}(bookId=${book.id})}" th:text="${book.title}">(title)</a></td>
-        <td th:text="${book.author}">(author)</td>   <!-- TODO 作者ページへのリンク -->
+        <td><a href="#" th:href="@{author/{author}(author=${book.author})}" th:text="${book.author}">(author)</a></td>
         <td th:text="${book.price} + '円'">(price)</td>
         <td th:text="'残り' + ${book.stock} + '冊'">(stock)</td>
         <td><a href="#" th:href="@{{bookId}(bookId=${book.id})}" th:text="この書籍の管理画面へ">(management)</a></td>

@@ -21,4 +21,7 @@ public interface BookRepository {
 
     @Delete("delete from books where id = #{bookId}")
     void deleteBook(Integer bookId);
+
+    @Select("select * from books where author = #{author}")
+    List<Book> findBooksByAuthor(String author);
 }

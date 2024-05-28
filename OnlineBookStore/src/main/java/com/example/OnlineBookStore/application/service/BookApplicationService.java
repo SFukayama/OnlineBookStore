@@ -41,4 +41,10 @@ public class BookApplicationService {
     public void deleteBookById(Integer bookId) {
         bookService.deleteBook(bookId);
     }
+
+    public List<BookDTO> findBooksByAuthor(String author) {
+        return bookService.findBooksByAuthor(author).stream()
+                .map(BookDTO::new)
+                .collect(Collectors.toList());
+    }
 }

@@ -32,4 +32,8 @@ public class BookService {
     public void deleteBook(Integer bookId) {
         bookRepository.deleteBook(bookId);
     }
+
+    public List<Book> findBooksByAuthor(String author) {
+        return bookRepository.findBooksByAuthor(author);
+    }
 }
