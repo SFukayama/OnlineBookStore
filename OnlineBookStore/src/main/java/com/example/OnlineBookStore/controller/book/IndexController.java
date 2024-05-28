@@ -22,7 +22,7 @@ public class IndexController {
     }
 
     @GetMapping("/search")
-    public String searchBookListByTitle(@RequestParam("title") String title, Model model){
+    public String searchBookListByTitle(@RequestParam("title") String title, Model model) {
         model.addAttribute("bookListByTitle", bookApplicationService.findBooksByTitle(title));
         return "book/search";
     }
