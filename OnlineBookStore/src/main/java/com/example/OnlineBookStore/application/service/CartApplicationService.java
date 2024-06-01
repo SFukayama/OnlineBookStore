@@ -23,4 +23,8 @@ public class CartApplicationService {
                 .map(CartDTO::new)
                 .collect(Collectors.toList());
     }
+
+    public void deleteItemInCart(Integer customerId, Integer bookId) {
+        cartService.deleteItemInCart(customerId, bookId);
+    }
 }

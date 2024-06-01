@@ -20,4 +20,8 @@ public class CartService {
     public List<Cart> findCartByCustomerId(Integer customerId) {
         return cartRepository.findCartByCustomerId(customerId);
     }
+
+    public void deleteItemInCart(Integer customerId, Integer bookId) {
+        cartRepository.deleteItemInCart(customerId, bookId);
+    }
 }
