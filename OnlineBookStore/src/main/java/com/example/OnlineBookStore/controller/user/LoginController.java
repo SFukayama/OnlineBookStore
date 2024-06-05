@@ -12,5 +12,4 @@ public class LoginController {
     public String showLoginForm(){
       return "/user/login";
     };
-
 }
