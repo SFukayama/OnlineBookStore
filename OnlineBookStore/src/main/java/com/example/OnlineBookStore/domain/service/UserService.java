@@ -17,4 +17,9 @@ public class UserService {
     public List<User> findAllUserList(){
         return userRepository.findAllUserList();
     }
+
+    public void registerUser(User user) {
+        userRepository.registerUser(user);
+    }
+
 }

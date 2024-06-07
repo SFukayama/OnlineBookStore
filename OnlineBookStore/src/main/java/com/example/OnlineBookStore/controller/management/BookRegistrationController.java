@@ -18,14 +18,14 @@ public class BookRegistrationController {
     private final BookApplicationService bookApplicationService;
 
     @GetMapping
-    public String bookRegistrationForm(@ModelAttribute BookRegistrationForm bookRegistrationForm) {
+    public String showBookRegistrationForm(@ModelAttribute BookRegistrationForm bookRegistrationForm) {
         return "management/bookRegistrationForm";
     }
 
     @PostMapping
     public String registerBook(@Validated BookRegistrationForm bookRegistrationForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return bookRegistrationForm(bookRegistrationForm);
+            return showBookRegistrationForm(bookRegistrationForm);
         }
         bookApplicationService.registerBook(bookRegistrationForm);
         return "redirect:/management/bookRegistrationForm";
