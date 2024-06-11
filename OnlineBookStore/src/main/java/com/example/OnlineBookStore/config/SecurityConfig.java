@@ -26,6 +26,7 @@ public class SecurityConfig {
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/book/**").permitAll()
                         .requestMatchers("/user/login/**").permitAll()
+                        .requestMatchers("/management/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin(login -> login
