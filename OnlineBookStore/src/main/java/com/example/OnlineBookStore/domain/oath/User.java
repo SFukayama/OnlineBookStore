@@ -7,6 +7,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User {
 
+    private int userId;
     private String username;
     private String password;
+    private Authority authority;
+
+    public enum Authority {
+        ADMIN,
+        USER,
+    }
 }
