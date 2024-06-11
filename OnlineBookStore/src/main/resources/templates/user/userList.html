@@ -14,12 +14,18 @@
     <table>
         <thead>
         <tr>
+            <th>ID</th>
             <th>ユーザー名</th>
+            <th>パスワード</th>
+            <th>権限</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="user : ${userList}">
+            <td th:text="${user.userId}">(userId)</td>
             <td th:text="${user.username}">(username)</td>
+            <td th:text="${user.password}">(password)</td>
+            <td th:text="${user.authority}">(authority)</td>
         </tr>
         </tbody>
     </table>
