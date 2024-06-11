@@ -14,7 +14,7 @@ public class AddToCartController {
 
     @PostMapping("/addToCart/{bookId}")
     public String addToCart(@PathVariable int bookId) {
-        int customerId = 1; // TODO カスタマーIDの管理・受け渡しについて実装
+        int customerId = 1;// TODO カスタマーIDの管理・受け渡しについて実装
         cartApplicationService.addToCart(customerId, bookId);
         return "redirect:/book/index";
     }
