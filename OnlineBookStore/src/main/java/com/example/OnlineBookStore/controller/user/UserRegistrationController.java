@@ -28,6 +28,6 @@ public class UserRegistrationController {
             return showUserRegistrationForm(userRegistrationForm);
         }
         userApplicationService.registerUser(userRegistrationForm);
-        return "redirect:/user/userRegistrationForm";
+        return "redirect:/book/index";
     }
 }
