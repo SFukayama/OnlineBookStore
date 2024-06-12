@@ -26,7 +26,7 @@
         <td th:text="'残り' + ${cart.stock} + '冊'">(stock)</td>
         <td>
             <form th:action="@{/cart/delete}" method="post">
-                <input type="hidden" name="bookId" th:value="${cart.id}">
+                <input type="hidden" name="cartId" th:value="${cart.cartId}">
                 <button type="submit">削除</button>
             </form>
         </td>

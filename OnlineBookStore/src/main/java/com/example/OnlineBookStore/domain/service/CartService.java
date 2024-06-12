@@ -13,15 +13,15 @@ public class CartService {
 
     private final CartRepository cartRepository;
 
-    public void addToCart(int customerId, int bookId) {
-        cartRepository.addToCart(customerId, bookId);
+    public void addToCart(String username, int bookId) {
+        cartRepository.addToCart(username, bookId);
     }
 
-    public List<Cart> findCartByCustomerId(Integer customerId) {
-        return cartRepository.findCartByCustomerId(customerId);
+    public List<Cart> findCartByUsername(String username) {
+        return cartRepository.findCartByUsername(username);
     }
 
-    public void deleteItemInCart(Integer customerId, Integer bookId) {
-        cartRepository.deleteItemInCart(customerId, bookId);
+    public void deleteItemInCart(Integer cartId) {
+        cartRepository.deleteItemInCart(cartId);
     }
 }

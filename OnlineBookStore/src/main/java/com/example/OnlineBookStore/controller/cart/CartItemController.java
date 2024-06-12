@@ -16,9 +16,8 @@ public class CartItemController {
     private final CartApplicationService cartApplicationService;
 
     @PostMapping("/delete")
-    public String deleteItemInCart(@RequestParam("bookId") Integer bookId) {
-        int customerId = 1; // TODO カスタマーID
-        cartApplicationService.deleteItemInCart(customerId, bookId);
+    public String deleteItemInCart(@RequestParam("cartId") Integer cartId) {
+        cartApplicationService.deleteItemInCart(cartId);
         return "redirect:/cart";
     }
 }

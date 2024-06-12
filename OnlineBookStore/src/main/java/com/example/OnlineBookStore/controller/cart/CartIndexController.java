@@ -2,6 +2,9 @@ package com.example.OnlineBookStore.controller.cart;
 
 import com.example.OnlineBookStore.application.service.CartApplicationService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,9 +18,11 @@ public class CartIndexController {
     private final CartApplicationService cartApplicationService;
 
     @GetMapping
-    public String showCartByCustomerId(Model model) {
-        int customerId = 1; // TODO カスタマーIDの管理・受け渡しについて実装
-        model.addAttribute("bookListInCart", cartApplicationService.showCartByCustomerId(customerId));
+    public String showCartByUsername(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String username = userDetails.getUsername();
+        model.addAttribute("bookListInCart", cartApplicationService.showCartByUsername(username));
         return "cart/cart";
     }
 }

@@ -14,17 +14,17 @@ public class CartApplicationService {
 
     private final CartService cartService;
 
-    public void addToCart(int customerId, int bookId) {
-        cartService.addToCart(customerId, bookId);
+    public void addToCart(String username, int bookId) {
+        cartService.addToCart(username, bookId);
     }
 
-    public List<CartDTO> showCartByCustomerId(int customerId) {
-        return cartService.findCartByCustomerId(customerId).stream()
+    public List<CartDTO> showCartByUsername(String username) {
+        return cartService.findCartByUsername(username).stream()
                 .map(CartDTO::new)
                 .collect(Collectors.toList());
     }
 
-    public void deleteItemInCart(Integer customerId, Integer bookId) {
-        cartService.deleteItemInCart(customerId, bookId);
+    public void deleteItemInCart(Integer cartId) {
+        cartService.deleteItemInCart(cartId);
     }
 }

@@ -6,7 +6,8 @@ import lombok.Data;
 @Data
 public class CartDTO {
 
-    private int customerId;
+    private int cartId;
+    private String username;
     private int bookId;
     private int quantity;
 
@@ -17,7 +18,9 @@ public class CartDTO {
     private int stock;
 
     public CartDTO(Cart cart) {
-        this.customerId = cart.getCustomerId();
+
+        this.cartId = cart.getCartId();
+        this.username = cart.getUsername();
         this.bookId = cart.getBookId();
         this.quantity = cart.getQuantity();
         this.id = cart.getId();

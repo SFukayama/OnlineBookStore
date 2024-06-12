@@ -10,12 +10,12 @@ import java.util.List;
 
 @Mapper
 public interface CartRepository {
-    @Insert("insert into cart (customer_id, book_id) values (#{customerId}, #{bookId})")
-    void addToCart(Integer customerId, Integer bookId);
+    @Insert("insert into cart (username, book_id) values (#{username}, #{bookId})")
+    void addToCart(String username, Integer bookId);
 
-    @Select("select * from cart inner join books on cart.book_id = books.id where cart.customer_id = #{customerId}")
-    List<Cart> findCartByCustomerId(Integer customerId);
+    @Select("select * from cart inner join books on cart.book_id = books.id where cart.username = #{username}")
+    List<Cart> findCartByUsername(String username);
 
-    @Delete("delete from cart where customer_id = #{customerId} and book_id = #{bookId}")
-    void deleteItemInCart(Integer customerId, Integer bookId);
+    @Delete("delete from cart where cart_id = #{cartId}")
+    void deleteItemInCart(Integer cartId);
 }
