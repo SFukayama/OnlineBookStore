@@ -1,4 +1,4 @@
-package com.example.OnlineBookStore.controller.user;
+package com.example.OnlineBookStore.controller.management;
 
 import com.example.OnlineBookStore.application.service.UserApplicationService;
 import lombok.RequiredArgsConstructor;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/management")
 @RequiredArgsConstructor
 public class UserListController {
 
@@ -17,6 +17,6 @@ public class UserListController {
     @GetMapping("/userList")
     public String userList(Model model) {
         model.addAttribute("userList", userApplicationService.findAllUserList());
-        return "user/userList";
+        return "management/userList";
     }
 }
