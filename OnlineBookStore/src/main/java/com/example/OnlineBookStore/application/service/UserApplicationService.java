@@ -1,6 +1,7 @@
 package com.example.OnlineBookStore.application.service;
 
 import com.example.OnlineBookStore.application.dto.UserDTO;
+import com.example.OnlineBookStore.controller.management.AdminRegistrationForm;
 import com.example.OnlineBookStore.controller.user.UserRegistrationForm;
 import com.example.OnlineBookStore.domain.oath.User;
 import com.example.OnlineBookStore.domain.service.UserService;
@@ -27,5 +28,10 @@ public class UserApplicationService {
     public void registerUser(UserRegistrationForm userRegistrationForm) {
         User user = modelMapper.map(userRegistrationForm, User.class);
         userService.registerUser(user);
+    }
+
+    public void registerAdmin(AdminRegistrationForm adminRegistrationForm) {
+        User user = modelMapper.map(adminRegistrationForm, User.class);
+        userService.registerAdmin(user);
     }
 }

@@ -18,4 +18,7 @@ public interface UserRepository {
 
     @Insert("insert into users (username, password, authority) values (#{username}, #{password}, 'USER')")
     void registerUser(User user);
+
+    @Insert("insert into users (username, password, authority) values (#{username}, #{password}, 'ADMIN')")
+    void registerAdmin(User user);
 }

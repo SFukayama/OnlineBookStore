@@ -14,7 +14,7 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public List<User> findAllUserList(){
+    public List<User> findAllUserList() {
         return userRepository.findAllUserList();
     }
 
@@ -22,4 +22,7 @@ public class UserService {
         userRepository.registerUser(user);
     }
 
+    public void registerAdmin(User user) {
+        userRepository.registerAdmin(user);
+    }
 }
