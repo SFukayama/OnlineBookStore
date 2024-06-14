@@ -14,8 +14,9 @@ import org.springframework.ui.Model;
 public class ManagementTopController {
 
     private final BookApplicationService bookApplicationService;
+
     @GetMapping("/top")
-    public String managementTop(Model model){
+    public String managementTop(Model model) {
         model.addAttribute("bookList", bookApplicationService.findAll());
         return "management/top";
     }
