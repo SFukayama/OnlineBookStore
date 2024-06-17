@@ -31,4 +31,9 @@ public class CartApplicationService {
     public int calculateTotalPriceInCart(String username) {
         return cartService.calculateTotalPriceInCart(username);
     }
+
+    public void paymentCartByUsername(String username) {
+        cartService.paymentCartByUsername(username);
+//        cartService.saveOrderHistory(username);
+    }
 }

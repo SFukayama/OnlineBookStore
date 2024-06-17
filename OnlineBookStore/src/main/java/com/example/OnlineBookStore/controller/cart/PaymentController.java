@@ -8,24 +8,32 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/cart/payment")
+@RequestMapping("/cart/payment/confirm")
 public class PaymentController {
 
     private final CartApplicationService cartApplicationService;
 
     @GetMapping
-    public String showCartByUsername(Model model) {
+    public String confirmCartByUsername(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String username = userDetails.getUsername();
         model.addAttribute("bookListInCart", cartApplicationService.showCartByUsername(username));
         model.addAttribute("totalPrice", cartApplicationService.calculateTotalPriceInCart(username));
-        return "cart/payment";
+        return "cart/payment/confirm";
     }
 
-
+    @PostMapping
+    public String paymentCartByUsername(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String username = userDetails.getUsername();
+        cartApplicationService.paymentCartByUsername(username);
+        return "cart/payment/complete";
+    }
 }

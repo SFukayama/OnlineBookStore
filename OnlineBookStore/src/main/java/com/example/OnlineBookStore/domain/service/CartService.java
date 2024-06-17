@@ -32,4 +32,10 @@ public class CartService {
                 .sum();
         return totalPrice;
     }
+
+    public void paymentCartByUsername(String username) {
+        cartRepository.deleteCartByUsername(username);
+//        cartRepository.reduceStock(username);
+        //　TODO　支払いのシステム
+    }
 }

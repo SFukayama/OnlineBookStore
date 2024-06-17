@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>決済</title>
+    <title>決済確認</title>
 </head>
 <body>
 <h1>決済内容確認</h1>
@@ -26,11 +26,11 @@
 </table>
 
 <p th:text="'合計金額は' + ${totalPrice} + '円です'">(totalPrice)</p>
-<form th:action="@{/cart/payment}" method="post">
+<form th:action="@{/cart/payment/confirm}" method="post">
     <button type="submit">決済</button>
 </form>
 
-<a href="#" th:href="@{/book/index}">カートに戻る</a>
+<a href="#" th:href="@{/cart/cart}">カートに戻る</a>
 
 </body>
 </html>

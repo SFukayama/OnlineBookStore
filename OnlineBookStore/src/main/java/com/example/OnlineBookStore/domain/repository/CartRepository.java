@@ -1,10 +1,7 @@
 package com.example.OnlineBookStore.domain.repository;
 
 import com.example.OnlineBookStore.domain.model.Cart;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -18,4 +15,9 @@ public interface CartRepository {
 
     @Delete("delete from cart where cart_id = #{cartId}")
     void deleteItemInCart(Integer cartId);
+
+    @Delete("delete from cart where username = #{username}")
+    void deleteCartByUsername(String username);
+
+//    @Update("") void reduceStock(String username);
 }
