@@ -24,4 +24,12 @@ public class CartService {
     public void deleteItemInCart(Integer cartId) {
         cartRepository.deleteItemInCart(cartId);
     }
+
+    public int calculateTotalPriceInCart(String username) {
+        List<Cart> booksInCart = cartRepository.findCartByUsername(username);
+        int totalPrice = booksInCart.stream()
+                .mapToInt(Cart::getPrice)
+                .sum();
+        return totalPrice;
+    }
 }

@@ -27,4 +27,8 @@ public class CartApplicationService {
     public void deleteItemInCart(Integer cartId) {
         cartService.deleteItemInCart(cartId);
     }
+
+    public int calculateTotalPriceInCart(String username) {
+        return cartService.calculateTotalPriceInCart(username);
+    }
 }

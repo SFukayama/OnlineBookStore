@@ -23,6 +23,7 @@ public class CartIndexController {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String username = userDetails.getUsername();
         model.addAttribute("bookListInCart", cartApplicationService.showCartByUsername(username));
+        model.addAttribute("totalPrice", cartApplicationService.calculateTotalPriceInCart(username));
         return "cart/cart";
     }
 }
