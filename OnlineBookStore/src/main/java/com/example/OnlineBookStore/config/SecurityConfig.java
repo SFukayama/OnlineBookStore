@@ -25,7 +25,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/book/**").permitAll()
-                        .requestMatchers("/user/login/**").permitAll()
+                        .requestMatchers("/user/login").permitAll()
                         .requestMatchers("/user/userRegistrationForm").permitAll()
                         .requestMatchers("/management/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
