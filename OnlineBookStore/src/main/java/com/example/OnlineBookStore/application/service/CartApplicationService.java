@@ -33,7 +33,7 @@ public class CartApplicationService {
     }
 
     public void paymentCartByUsername(String username) {
+        cartService.saveOrderHistory(username);
         cartService.paymentCartByUsername(username);
-//        cartService.saveOrderHistory(username);
     }
 }

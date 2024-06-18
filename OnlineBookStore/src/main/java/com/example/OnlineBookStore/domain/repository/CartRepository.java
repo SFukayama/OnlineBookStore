@@ -1,6 +1,7 @@
 package com.example.OnlineBookStore.domain.repository;
 
 import com.example.OnlineBookStore.domain.model.Cart;
+import com.example.OnlineBookStore.domain.model.Order;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -18,6 +19,16 @@ public interface CartRepository {
 
     @Delete("delete from cart where username = #{username}")
     void deleteCartByUsername(String username);
+
+    @Insert({
+            "<script>",
+            "INSERT INTO history (username, book_id, date) VALUES ",
+            "<foreach collection='orderList' item='order' separator=','>",
+            "(#{order.username}, #{order.bookId}, #{order.date})",
+            "</foreach>",
+            "</script>"
+    })
+    void saveOrderHistory(@Param("orderList") List<Order> orderList);
 
 //    @Update("") void reduceStock(String username);
 }
