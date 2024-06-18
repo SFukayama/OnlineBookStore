@@ -1,5 +1,6 @@
 package com.example.OnlineBookStore.domain.service;
 
+import com.example.OnlineBookStore.domain.model.Book;
 import com.example.OnlineBookStore.domain.oath.User;
 import com.example.OnlineBookStore.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,5 +25,9 @@ public class UserService {
 
     public void registerAdmin(User user) {
         userRepository.registerAdmin(user);
+    }
+
+    public List<Book> showHistoryByUsername(String username) {
+        return userRepository.showHistoryByUsername(username);
     }
 }

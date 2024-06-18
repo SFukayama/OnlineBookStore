@@ -1,5 +1,6 @@
 package com.example.OnlineBookStore.domain.repository;
 
+import com.example.OnlineBookStore.domain.model.Book;
 import com.example.OnlineBookStore.domain.oath.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -21,4 +22,7 @@ public interface UserRepository {
 
     @Insert("insert into users (username, password, authority) values (#{username}, #{password}, 'ADMIN')")
     void registerAdmin(User user);
+
+    @Select("select * from history inner join books on history.book_id = books.id where history.username = #{username}")
+    List<Book> showHistoryByUsername(String username);
 }
