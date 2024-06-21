@@ -30,5 +30,14 @@ public interface CartRepository {
     })
     void saveOrderHistory(@Param("orderList") List<Order> orderList);
 
-//    @Update("") void reduceStock(String username);
+    @Update({
+            "<script>",
+            "UPDATE books SET stock = stock - 1 ",
+            "WHERE id IN ",
+            "<foreach collection='bookIds' item='cart' open='(' separator=',' close=')'>",
+            "#{cart.bookId}",
+            "</foreach>",
+            "</script>"
+    })
+    void reduceStock(@Param("bookIds") List<Cart> bookIds);
 }

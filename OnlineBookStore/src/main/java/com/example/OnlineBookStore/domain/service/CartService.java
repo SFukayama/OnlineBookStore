@@ -40,9 +40,9 @@ public class CartService {
     }
 
     public void paymentCartByUsername(String username) {
+        List<Cart> bookIds = cartRepository.findCartByUsername(username);
+        cartRepository.reduceStock(bookIds);
         cartRepository.deleteCartByUsername(username);
-        //  TODO 在庫を減らす処理
-        //  cartRepository.reduceStock(username);
         //　TODO　支払いのシステムに決済情報を受け渡す処理(要不要から考える)
     }
 

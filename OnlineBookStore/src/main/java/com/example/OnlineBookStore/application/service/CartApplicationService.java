@@ -4,6 +4,7 @@ import com.example.OnlineBookStore.application.dto.CartDTO;
 import com.example.OnlineBookStore.domain.service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,6 +33,7 @@ public class CartApplicationService {
         return cartService.calculateTotalPriceInCart(username);
     }
 
+    @Transactional
     public void paymentCartByUsername(String username) {
         cartService.saveOrderHistory(username);
         cartService.paymentCartByUsername(username);
