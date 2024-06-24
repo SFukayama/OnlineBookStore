@@ -13,6 +13,7 @@
         <th>タイトル</th>
         <th>著者</th>
         <th>値段</th>
+        <th>購入日時</th>
     </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
         <td th:text="${history.title}">(title)</td>
         <td th:text="${history.author}">(author)</td>
         <td th:text="${history.price} + '円'">(price)</td>
+        <td th:text="${history.date}">(date)</td>
     </tr>
     </tbody>
 </table>

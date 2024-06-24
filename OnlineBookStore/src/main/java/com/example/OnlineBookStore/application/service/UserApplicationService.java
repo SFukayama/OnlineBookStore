@@ -1,6 +1,6 @@
 package com.example.OnlineBookStore.application.service;
 
-import com.example.OnlineBookStore.application.dto.BookDTO;
+import com.example.OnlineBookStore.application.dto.OrderDTO;
 import com.example.OnlineBookStore.application.dto.UserDTO;
 import com.example.OnlineBookStore.controller.management.AdminRegistrationForm;
 import com.example.OnlineBookStore.controller.user.UserRegistrationForm;
@@ -36,9 +36,9 @@ public class UserApplicationService {
         userService.registerAdmin(user);
     }
 
-    public List<BookDTO> showHistoryByUsername(String username) {
+    public List<OrderDTO> showHistoryByUsername(String username) {
         return userService.showHistoryByUsername(username).stream()
-                .map(BookDTO::new)
+                .map(OrderDTO::new)
                 .collect(Collectors.toList());
     }
 }
