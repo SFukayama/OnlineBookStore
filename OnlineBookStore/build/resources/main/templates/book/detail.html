@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>書籍詳細</title>
+</head>
+<body>
+<h1>書籍詳細</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>タイトル</th>
+        <th>著者</th>
+        <th>値段</th>
+        <th>在庫</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${bookDetail}">
+        <td th:text="${book.id}">(id)</td>
+        <td th:text="${book.title}">(title)</td>
+        <td th:text="${book.author}">(author)</td>
+        <td th:text="${book.price} + '円'">(price)</td>
+        <td th:text="'残り' + ${book.stock} + '冊'">(stock)</td>
+    </tr>
+    </tbody>
+</table>
+<a href="#" th:href="@{index}">書籍一覧に戻る</a>
+</body>
+</html>

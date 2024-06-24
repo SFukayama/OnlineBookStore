@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,8 +38,11 @@ public class UserApplicationService {
     }
 
     public List<OrderDTO> showHistoryByUsername(String username) {
-        return userService.showHistoryByUsername(username).stream()
+        List<OrderDTO> historyList = userService.showHistoryByUsername(username).stream()
                 .map(OrderDTO::new)
+                .collect(Collectors.toList());
+        return historyList.stream()
+                .sorted(Comparator.comparing(OrderDTO::getDate))
                 .collect(Collectors.toList());
     }
 }

@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,8 +20,11 @@ public class BookApplicationService {
     private final ModelMapper modelMapper;
 
     public List<BookDTO> findAll() {
-        return bookService.findAll().stream()
+        List<BookDTO> bookList = bookService.findAll().stream()
                 .map(BookDTO::new)
+                .collect(Collectors.toList());
+        return bookList.stream()
+                .sorted(Comparator.comparing(BookDTO::getId))
                 .collect(Collectors.toList());
     }
 

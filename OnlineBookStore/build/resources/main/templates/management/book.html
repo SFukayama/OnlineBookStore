@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>書籍詳細</title>
+</head>
+<body>
+<h1>書籍詳細</h1>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>タイトル</th>
+            <th>著者</th>
+            <th>値段</th>
+            <th>在庫</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${bookDetail}">
+            <td th:text="${book.id}">(id)</td>
+            <td th:text="${book.title}">(title)</td>
+            <td th:text="${book.author}">(author)</td>
+            <td th:text="${book.price} + '円'">(price)</td>
+            <td th:text="'残り' + ${book.stock} + '冊'">(stock)</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <h1>書籍情報の変更</h1>
+    <form action="#" th:action="@{/management/{bookId}}" th:method="post"
+          th:object="${bookRegistrationForm}" th:each="book : ${bookDetail}">
+        <div>
+            <label for="idInput">ID</label>
+            <input type="number" id="idInput" th:name="id" th:value="${book.id}">
+            <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}">(error)</p>
+        </div>
+        <div>
+            <label for="titleInput">タイトル</label>
+            <input type="text" id="titleInput" th:name="title" th:value="${book.title}">
+            <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">(error)</p>
+        </div>
+        <div>
+            <label for="authorInput">著者</label>
+            <input type="text" id="authorInput" th:name="author" th:value="${book.author}">
+            <p th:if="${#fields.hasErrors('author')}" th:errors="*{author}">(error)</p>
+        </div>
+        <div>
+            <label for="priceInput">値段</label>
+            <input type="number" id="priceInput" th:name="price" th:value="${book.price}">
+            <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}">(error)</p>
+        </div>
+        <div>
+            <label for="stockInput">在庫</label>
+            <input type="number" id="stockInput" th:name="stock" th:value="${book.stock}">
+            <p th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}">(error)</p>
+        </div>
+        <div>
+            <button type="submit">変更</button>
+        </div>
+    </form>
+</div>
+<div>
+    <h1>書籍の削除</h1>
+    <form th:action="@{/management/{id}/delete(id=${book.id})}" method="post" th:each="book : ${bookDetail}">
+        <button type="submit">削除</button>
+    </form>
+</div>
+<a href="#" th:href="@{top}">管理画面トップに戻る</a>
+</body>
+</html>

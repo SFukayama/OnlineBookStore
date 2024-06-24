@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>カート</title>
+</head>
+<body>
+<h1>カート内容一覧</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>タイトル</th>
+        <th>著者</th>
+        <th>値段</th>
+        <th>在庫</th>
+        <th>カートから削除</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cart : ${bookListInCart}">
+        <td th:text="${cart.id}">(id)</td>
+        <td th:text="${cart.title}">(title)</td>
+        <td th:text="${cart.author}">(author)</td>
+        <td th:text="${cart.price} + '円'">(price)</td>
+        <td th:text="'残り' + ${cart.stock} + '冊'">(stock)</td>
+        <td>
+            <form th:action="@{/cart/delete}" method="post">
+                <input type="hidden" name="cartId" th:value="${cart.cartId}">
+                <button type="submit">削除</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<p th:text="'合計金額は' + ${totalPrice} + '円です'">(totalPrice)</p>
+<a href="#" th:href="@{/cart/payment/confirm}">決済に進む</a><br>
+<a href="#" th:href="@{/book/index}">書籍一覧に戻る</a><br>
+<a href="#" th:href="@{/user/logout}">ログアウト画面へ</a>
+
+</body>
+</html>
