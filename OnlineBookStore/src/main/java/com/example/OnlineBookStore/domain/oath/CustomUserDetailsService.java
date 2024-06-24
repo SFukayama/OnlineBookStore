@@ -1,5 +1,6 @@
 package com.example.OnlineBookStore.domain.oath;
 
+import com.example.OnlineBookStore.domain.model.User;
 import com.example.OnlineBookStore.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

@@ -1,7 +1,7 @@
 package com.example.OnlineBookStore.domain.service;
 
 import com.example.OnlineBookStore.domain.model.Order;
-import com.example.OnlineBookStore.domain.oath.User;
+import com.example.OnlineBookStore.domain.model.User;
 import com.example.OnlineBookStore.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

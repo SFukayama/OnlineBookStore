@@ -4,7 +4,7 @@ import com.example.OnlineBookStore.application.dto.OrderDTO;
 import com.example.OnlineBookStore.application.dto.UserDTO;
 import com.example.OnlineBookStore.controller.management.AdminRegistrationForm;
 import com.example.OnlineBookStore.controller.user.UserRegistrationForm;
-import com.example.OnlineBookStore.domain.oath.User;
+import com.example.OnlineBookStore.domain.model.User;
 import com.example.OnlineBookStore.domain.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

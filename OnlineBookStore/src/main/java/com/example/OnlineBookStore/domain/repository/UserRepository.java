@@ -1,7 +1,7 @@
 package com.example.OnlineBookStore.domain.repository;
 
 import com.example.OnlineBookStore.domain.model.Order;
-import com.example.OnlineBookStore.domain.oath.User;
+import com.example.OnlineBookStore.domain.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

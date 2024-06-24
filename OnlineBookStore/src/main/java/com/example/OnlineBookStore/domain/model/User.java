@@ -1,4 +1,4 @@
-package com.example.OnlineBookStore.domain.oath;
+package com.example.OnlineBookStore.domain.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

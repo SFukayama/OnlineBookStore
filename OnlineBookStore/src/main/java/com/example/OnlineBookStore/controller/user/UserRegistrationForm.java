@@ -1,6 +1,6 @@
 package com.example.OnlineBookStore.controller.user;
 
-import com.example.OnlineBookStore.domain.oath.User;
+import com.example.OnlineBookStore.domain.model.User;
 import lombok.Data;
 
 @Data
