@@ -22,8 +22,11 @@ public class UserApplicationService {
     private final UserService userService;
 
     public List<UserDTO> findAllUserList() {
-        return userService.findAllUserList().stream()
+        List<UserDTO> userList = userService.findAllUserList().stream()
                 .map(UserDTO::new)
+                .collect(Collectors.toList());
+        return userList.stream()
+                .sorted(Comparator.comparing(UserDTO::getUserId))
                 .collect(Collectors.toList());
     }
 
