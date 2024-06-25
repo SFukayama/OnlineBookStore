@@ -24,6 +24,9 @@ public class UserRegistrationController {
 
     @PostMapping
     public String registerUser(@Validated UserRegistrationForm userRegistrationForm, BindingResult bindingResult) {
+        if (!userApplicationService.isUsernameUnique(userRegistrationForm.getUsername())) {
+            bindingResult.rejectValue("username", "error.userRegistrationForm", "このユーザー名は既に使用されています");
+        }
         if (bindingResult.hasErrors()) {
             return showUserRegistrationForm(userRegistrationForm);
         }

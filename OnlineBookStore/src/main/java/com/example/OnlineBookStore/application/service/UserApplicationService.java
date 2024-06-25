@@ -7,11 +7,12 @@ import com.example.OnlineBookStore.controller.user.UserRegistrationForm;
 import com.example.OnlineBookStore.domain.model.User;
 import com.example.OnlineBookStore.domain.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -47,5 +48,10 @@ public class UserApplicationService {
         return historyList.stream()
                 .sorted(Comparator.comparing(OrderDTO::getDate))
                 .collect(Collectors.toList());
+    }
+
+    public boolean isUsernameUnique(String username) {
+        Optional<User> existingUser = userService.findByUsername(username);
+        return !existingUser.isPresent();
     }
 }
