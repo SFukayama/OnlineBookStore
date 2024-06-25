@@ -24,6 +24,9 @@ public class AdminRegistrationController {
 
     @PostMapping
     public String registerAdmin(@Validated AdminRegistrationForm adminRegistrationForm, BindingResult bindingResult) {
+        if (!userApplicationService.isUsernameUnique(adminRegistrationForm.getUsername())) {
+            bindingResult.rejectValue("username", "error.userRegistrationForm", "このユーザー名は既に使用されています");
+        }
         if (bindingResult.hasErrors()) {
             return showAdminRegistrationForm(adminRegistrationForm);
         }
