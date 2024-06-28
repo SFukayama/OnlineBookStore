@@ -23,4 +23,5 @@ public class AddToCartController {
         cartApplicationService.addToCart(username, bookId);
         return "redirect:/book/index";
     }
+    // TODO 在庫が0のときカートに追加できないようにする
 }
