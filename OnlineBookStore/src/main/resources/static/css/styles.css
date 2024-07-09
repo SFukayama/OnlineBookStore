@@ -1,0 +1,60 @@
+/* ページ全体のスタイル */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* h1要素のスタイル */
+h1 {
+    margin-bottom: 20px;
+}
+
+/* リンクのスタイル */
+a {
+    text-decoration: none;
+    color: #007bff; /* リンクの色を指定（ブルー） */
+}
+
+a:hover {
+    text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+/* テーブルのスタイル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* 下線を表示 */
+}
+
+th {
+    background-color: #f2f2f2; /* ヘッダー行の背景色 */
+}
+
+/* フォームのスタイル */
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"], button[type="submit"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* ホバー時の色変更 */
+}
