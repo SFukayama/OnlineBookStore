@@ -22,13 +22,13 @@ a:hover {
 
 /* テーブルのスタイル */
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
 th, td {
-    padding: 8px;
+    padding: 2px;
     text-align: left;
     border-bottom: 1px solid #ddd; /* 下線を表示 */
 }
